@@ -27,3 +27,5 @@ resource "tfe_workspace" "test" {
 
   terraform_version = var.tfe_workspace_terraform_version
 }
+
+# TODO: add support for https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/run_trigger
