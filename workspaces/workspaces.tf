@@ -7,6 +7,7 @@ resource "tfe_workspace" "test" {
   }
 
   auto_apply            = false
+  description           = each.value.description
   execution_mode        = each.value.execution_mode
   file_triggers_enabled = true
 
