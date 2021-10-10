@@ -10,18 +10,6 @@ variable "tfe_token" {
   sensitive   = true
 }
 
-variable "tfe_workspace_terraform_version" {
-  type        = string
-  description = "The version of Terraform to use for this workspace."
-  default     = "1.0.8"
-}
-
-variable "tfe_workspaces_prefix" {
-  type        = string
-  description = "Prefix for TFE Workspaces."
-  default     = "multi-cloud-k8s"
-}
-
 # see https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 # and https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
 variable "tfe_workspaces" {
@@ -59,4 +47,16 @@ variable "tfe_workspaces" {
     condition     = length(var.tfe_workspaces) > 0
     error_message = "The `tfe_workspaces` list must contain at least one workspace."
   }
+}
+
+variable "tfe_workspaces_prefix" {
+  type        = string
+  description = "Prefix for TFE Workspaces."
+  default     = "multi-cloud-k8s"
+}
+
+variable "tfe_workspace_terraform_version" {
+  type        = string
+  description = "The version of Terraform to use for this workspace."
+  default     = "1.0.8"
 }
