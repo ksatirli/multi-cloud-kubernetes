@@ -23,19 +23,19 @@ variable "tfe_workspaces" {
 
   default = [{
     description       = "Manages AKS Clusters."
-    execution_mode    = "remote"
+    execution_mode    = "local"
     working_directory = "/clusters/aks"
     }, {
     description       = "Manages DOKS Clusters."
-    execution_mode    = "remote"
+    execution_mode    = "local"
     working_directory = "/clusters/do"
     }, {
     description       = "Manages EKS Clusters."
-    execution_mode    = "remote"
+    execution_mode    = "local"
     working_directory = "/clusters/eks"
     }, {
     description       = "Manages GKE Clusters."
-    execution_mode    = "remote"
+    execution_mode    = "local"
     working_directory = "/clusters/gke"
     }, {
     description       = "Collects Terraform Cloud Workspace Outputs."
