@@ -1,6 +1,6 @@
 # Workspace `outputs`
 
-> This directory contains [Terraform Cloud](https://registry.terraform.io/providers/hashicorp/tfe/0.26.0/docs) Remote State Outputs.
+> This directory contains [Terraform Remote State](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs) Data Sources.
 
 ## Requirements
 
