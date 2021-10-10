@@ -14,7 +14,7 @@ terraform {
     # see https://registry.terraform.io/providers/hashicorp/google/3.87.0
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "2.80.0"
+      version = "2.78.0"
     }
   }
 

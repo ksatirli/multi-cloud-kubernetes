@@ -17,4 +17,5 @@
 crash.log
 
 # Credentials
-account.json
+clusters/aks/private_ssh_key
+clusters/gke/account.json
