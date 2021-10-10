@@ -6,8 +6,23 @@
 
 - [Multi-Cloud Kubernetes](#multi-cloud-kubernetes)
   - [Table of Contents](#table-of-contents)
+  - [Workflows](#workflows)
   - [Author Information](#author-information)
   - [License](#license)
+
+## Workflows
+
+The code in this repository is split out into a handful of distinct flows, each in their own directory:
+
+* `clusters/aks` contains code for Azure AKS Clusters
+* `clusters/doks` contains code for Digital Ocean Kubernetes Clusters
+* `clusters/eks` contains code for AWS EKS Clusters
+* `clusters/gke` contains code for Google Cloud GKE Clusters
+* `outputs` contains code for collecting distinctive outputs from all Workspaces in this repository
+* `workspaces` contains code for Terraform Cloud Workspaces
+* `terraform/kubernetes contains code for Terraform to start a Linux Virtual Machine with the Packer image
+
+Each directory contains its own `README.md` with information relevant to the workflow.
 
 ## Author Information
 
