@@ -7,7 +7,7 @@ variable "tfe_workspaces_prefix" {
 variable "azure_region" {
   type        = string
   description = "The Azure Region where the Resources should exist."
-  default     = "eastus"
+  default     = "westus"
 }
 
 # see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_service_versions
