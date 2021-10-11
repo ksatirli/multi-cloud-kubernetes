@@ -1,6 +1,6 @@
 # see https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/kubernetes_cluster
 resource "digitalocean_kubernetes_cluster" "cluster" {
-  auto_upgrade = true
+  auto_upgrade = false
 
   maintenance_policy {
     start_time = "03:00"
