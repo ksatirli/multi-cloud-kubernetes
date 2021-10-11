@@ -7,6 +7,7 @@ module "vault_on_doks" {
   }
 
   # NOTE: this is NOT the version of Vault to use
+  # see https://github.com/hashicorp/vault-helm/tags
   chart_version = "0.16.1"
 }
 
