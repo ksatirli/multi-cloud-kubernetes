@@ -1,27 +1,28 @@
 ---
 
-  global:
-    name: vault
-
-  server:
-    annotations:
-      consul.hashicorp.com/connect-inject: 'true'
-      consul.hashicorp.com/connect-service: 'vault'
-      consul.hashicorp.com/connect-service-port: '8200'
-      consul.hashicorp.com/connect-service-upstreams: 'expense-db-mysql:3306,expense-db-mssql:1433'
-      consul.hashicorp.com/transparent-proxy-exclude-outbound-ports: "8200,8201"
-      consul.hashicorp.com/transparent-proxy-exclude-inbound-ports: "8200,8201"
-    dataStorage:
-      size: 128Mb
-    dev:
-      enabled: true
-      devRootToken: "root"
-    standalone:
-      enabled: true
-
-  ui:
+global:
+  name: vault
+server:
+  %{ if add_to_service_mesh }
+  annotations:
+    consul.hashicorp.com/connect-inject: 'true'
+    consul.hashicorp.com/connect-service: 'vault'
+    consul.hashicorp.com/connect-service-port: '8200'
+    consul.hashicorp.com/connect-service-upstreams: 'expense-db-mysql:3306,expense-db-mssql:1433'
+    consul.hashicorp.com/transparent-proxy-exclude-outbound-ports: "8200,8201"
+    consul.hashicorp.com/transparent-proxy-exclude-inbound-ports: "8200,8201"
+  %{ endif }
+  dataStorage:
+    size: 128Mb
+  dev:
     enabled: true
-    serviceType: LoadBalancer
+    devRootToken: ${dev_root_token}
+  standalone:
+    enabled: true
 
-  csi:
-    enabled: false
+ui:
+  enabled: true
+  serviceType: LoadBalancer
+
+csi:
+  enabled: false

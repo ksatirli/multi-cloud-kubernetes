@@ -6,13 +6,6 @@ module "vault_on_doks" {
     helm       = helm.doks
     kubernetes = kubernetes.doks
   }
-}
 
-#module "vault_on_gke" {
-#  source = "./modules/vault"
-#
-#  providers = {
-#    helm       = helm.gke
-#    kubernetes = kubernetes.gke
-#  }
-#}
+  vault_dev_root_token = var.vault_token
+}

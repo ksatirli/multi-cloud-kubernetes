@@ -1,4 +1,4 @@
-# Vault `doks`
+# Consul `doks`
 
 > This directory contains [Digital Ocean](https://registry.terraform.io/providers/digitalocean/digitalocean) Resources.
 
@@ -11,4 +11,6 @@
 
 This deploys the following components to a Digital Ocean Kubernetes cluster.
 
-- Vault in dev mode (via Helm chart). Adds to Consul service mesh by default.
+- Consul and Prometheus (via Helm chart)
+- Grafana (via Helm chart)
+- Jaeger (via Kubernetes resource)

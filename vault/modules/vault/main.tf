@@ -8,6 +8,9 @@ resource "helm_release" "vault" {
   version = var.chart_version # NOTE: this is NOT the version of Vault to use
 
   values = [
-    file("${path.module}/values.yml")
+    templatefile("${path.module}/values.yml", {
+      dev_root_token = var.vault_dev_root_token
+      add_to_service_mesh = var.add_to_service_mesh
+    })
   ]
 }
