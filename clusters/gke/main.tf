@@ -30,8 +30,9 @@ resource "google_container_cluster" "cluster" {
       enable_integrity_monitoring = true
       enable_secure_boot          = false
     }
-
   }
+
+  project = var.google_project
 
   release_channel {
     channel = "REGULAR"

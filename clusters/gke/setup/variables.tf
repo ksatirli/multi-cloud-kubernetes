@@ -21,6 +21,7 @@ variable "iam_roles" {
     "roles/container.clusterAdmin",
     "roles/iam.serviceAccountCreator",
     "roles/iam.serviceAccountDeleter",
+    "roles/iam.serviceAccountUser",
     "roles/resourcemanager.projectIamAdmin",
   ]
 }
