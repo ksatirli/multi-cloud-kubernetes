@@ -20,7 +20,6 @@ The code in this repository is split out into a handful of distinct flows, each 
 * `clusters/gke` contains code for Google Cloud GKE Clusters
 * `outputs` contains code for collecting distinctive outputs from all Workspaces in this repository
 * `workspaces` contains code for Terraform Cloud Workspaces
-* `terraform/kubernetes contains code for Terraform to start a Linux Virtual Machine with the Packer image
 
 Each directory contains its own `README.md` with information relevant to the workflow.
 
