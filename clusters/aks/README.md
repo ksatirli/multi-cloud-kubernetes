@@ -24,4 +24,3 @@ The above example uses the default values for the `name` and `resource_group_nam
 ## Notes
 
 The implementation of this AKS Cluster is based on previous work carried out [here](https://github.com/ksatirli/dynamically-configured-infrastructure/tree/main/terraform/azure).
-
