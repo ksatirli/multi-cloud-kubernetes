@@ -18,7 +18,6 @@ The code in this repository is split out into a handful of distinct flows, each 
 
 * `clusters/aks` contains code for Azure AKS Clusters
 * `clusters/doks` contains code for Digital Ocean Kubernetes Clusters
-* `clusters/eks` contains code for AWS EKS Clusters
 * `clusters/gke` contains code for Google Cloud GKE Clusters
 
 ### `vault` Workflows

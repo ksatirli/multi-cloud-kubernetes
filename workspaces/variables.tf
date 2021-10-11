@@ -30,10 +30,6 @@ variable "tfe_workspaces" {
     execution_mode    = "remote"
     working_directory = "/clusters/doks"
     }, {
-    description       = "Manages EKS Clusters."
-    execution_mode    = "local"
-    working_directory = "/clusters/eks"
-    }, {
     description       = "Manages GKE Clusters."
     execution_mode    = "remote"
     working_directory = "/clusters/gke"
@@ -41,7 +37,7 @@ variable "tfe_workspaces" {
     description       = "Collects Terraform Cloud Workspace Outputs."
     execution_mode    = "remote"
     working_directory = "/outputs"
-    }]
+  }]
 
   validation {
     condition     = length(var.tfe_workspaces) > 0
