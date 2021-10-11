@@ -17,6 +17,7 @@ variable "iam_roles" {
 
   default = [
     "roles/cloudkms.admin",
+    "roles/compute.admin",
     "roles/container.admin",
     "roles/container.clusterAdmin",
     "roles/iam.serviceAccountCreator",
