@@ -22,7 +22,7 @@ The code in this repository is split out into a handful of distinct flows, each 
 
 ### `vault` Workflows
 
-* `vault/doks` contains code for deploying Vault on Digital Ocean Kubernetes Clusters
+* `vault` contains code for deploying Vault on Kubernetes Clusters
 
 ### Other Workflows
 
