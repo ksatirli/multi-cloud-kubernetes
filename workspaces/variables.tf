@@ -30,6 +30,10 @@ variable "tfe_workspaces" {
     execution_mode    = "remote"
     working_directory = "/clusters/doks"
     }, {
+    description       = "Manages EKS Clusters."
+    execution_mode    = "remote"
+    working_directory = "/clusters/eks"
+    }, {
     description       = "Manages GKE Clusters."
     execution_mode    = "remote"
     working_directory = "/clusters/gke"
