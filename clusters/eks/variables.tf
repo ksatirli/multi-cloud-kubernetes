@@ -16,5 +16,6 @@ variable "subnet_az" {
 
   default = [
     "a",
+    "c",
   ]
 }
