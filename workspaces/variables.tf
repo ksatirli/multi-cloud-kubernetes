@@ -28,7 +28,7 @@ variable "tfe_workspaces" {
     }, {
     description       = "Manages DOKS Clusters."
     execution_mode    = "local"
-    working_directory = "/clusters/do"
+    working_directory = "/clusters/doks"
     }, {
     description       = "Manages EKS Clusters."
     execution_mode    = "local"

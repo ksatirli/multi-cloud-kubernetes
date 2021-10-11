@@ -5,8 +5,8 @@ variable "tfe_workspaces" {
 
   default = [
     "aks",
-    "do",
     "eks",
+    "doks",
     "gke"
   ]
 }
