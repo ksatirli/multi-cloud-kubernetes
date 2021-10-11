@@ -23,5 +23,6 @@ module "eks" {
     root_volume_type = "gp2"
   }
 
-  vpc_id = data.aws_vpc.default.id
+  write_kubeconfig = false
+  vpc_id           = data.aws_vpc.default.id
 }

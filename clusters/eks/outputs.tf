@@ -1,7 +1,7 @@
 ## see https://www.terraform.io/docs/language/values/outputs.html
 output "cluster_id" {
   description = "EKS Cluster ID."
-  value       = module.eks.cluster_id
+  value       = module.eks.cluster_arn
 }
 
 # see https://www.terraform.io/docs/language/values/outputs.html
