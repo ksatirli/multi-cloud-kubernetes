@@ -6,8 +6,30 @@
 
 - [Multi-Cloud Kubernetes](#multi-cloud-kubernetes)
   - [Table of Contents](#table-of-contents)
+  - [Workflows](#workflows)
   - [Author Information](#author-information)
   - [License](#license)
+
+## Workflows
+
+The code in this repository is split out into a handful of distinct flows, each in their own directory:
+
+### `clusters` Workflows
+
+* `clusters/aks` contains code for Azure AKS Clusters
+* `clusters/doks` contains code for Digital Ocean Kubernetes Clusters
+* `clusters/gke` contains code for Google Cloud GKE Clusters
+
+### `vault` Workflows
+
+* `vault` contains code for deploying Vault on Kubernetes Clusters
+
+### Other Workflows
+
+* `outputs` contains code for collecting distinctive outputs from all Workspaces in this repository
+* `workspaces` contains code for Terraform Cloud Workspaces
+
+Each directory contains its own `README.md` with information relevant to the workflow.
 
 ## Author Information
 

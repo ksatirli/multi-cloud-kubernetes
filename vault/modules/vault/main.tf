@@ -1,0 +1,13 @@
+# see https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release
+resource "helm_release" "vault" {
+  chart      = "vault"
+  name       = "vault"
+  repository = "https://helm.releases.hashicorp.com/"
+
+  # see https://github.com/hashicorp/vault-helm/tags
+  version = var.chart_version # NOTE: this is NOT the version of Vault to use
+
+  values = [
+    file("${path.module}/values.yml")
+  ]
+}
