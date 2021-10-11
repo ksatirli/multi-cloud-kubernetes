@@ -1,3 +1,4 @@
+# Vault on Digital Ocean Kubernetes Cluster
 module "vault_on_doks" {
   source = "./modules/vault"
 
@@ -5,10 +6,6 @@ module "vault_on_doks" {
     helm       = helm.doks
     kubernetes = kubernetes.doks
   }
-
-  # NOTE: this is NOT the version of Vault to use
-  # see https://github.com/hashicorp/vault-helm/tags
-  chart_version = "0.16.1"
 }
 
 #module "vault_on_gke" {
