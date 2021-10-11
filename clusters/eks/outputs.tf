@@ -21,7 +21,7 @@ output "console_url" {
   description = "AWS Console URL."
   value       = "https://${var.aws_region}.console.aws.amazon.com/ecs/home?region=${var.aws_region}#/clusters"
 }
-#
+
 # this variable is used for testing purposes and has no bearing on the demo
 # see https://www.terraform.io/docs/language/values/outputs.html
 output "workspace_url" {
