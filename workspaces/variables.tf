@@ -35,7 +35,7 @@ variable "tfe_workspaces" {
     working_directory = "/clusters/eks"
     }, {
     description       = "Manages GKE Clusters."
-    execution_mode    = "local"
+    execution_mode    = "remote"
     working_directory = "/clusters/gke"
     }, {
     description       = "Collects Terraform Cloud Workspace Outputs."
