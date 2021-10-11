@@ -13,8 +13,8 @@ terraform {
 resource "google_project_iam_member" "terraform_cloud" {
   # see https://www.terraform.io/docs/language/meta-arguments/for_each.html
   for_each = {
-  for role in var.iam_roles :
-  role => role
+    for role in var.iam_roles :
+    role => role
   }
 
   project = google_service_account.terraform_cloud.project
@@ -26,8 +26,8 @@ resource "google_project_iam_member" "terraform_cloud" {
 resource "google_project_service" "project" {
   # see https://www.terraform.io/docs/language/meta-arguments/for_each.html
   for_each = {
-  for service in var.project_services :
-  service => service
+    for service in var.project_services :
+    service => service
   }
 
   project = google_service_account.terraform_cloud.project
