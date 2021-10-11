@@ -41,7 +41,7 @@ variable "tfe_workspaces" {
     description       = "Collects Terraform Cloud Workspace Outputs."
     execution_mode    = "remote"
     working_directory = "/outputs"
-  }]
+    }]
 
   validation {
     condition     = length(var.tfe_workspaces) > 0
