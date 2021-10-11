@@ -6,7 +6,7 @@ variable "tfe_workspaces_prefix" {
 
 variable "do_region" {
   type        = string
-  description = "he slug identifier for the region where the resources will be created."
+  description = "The slug identifier for the region where the resources will be created."
   default     = "sfo3" # San Francisco, CA
 }
 
