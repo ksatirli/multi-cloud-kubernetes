@@ -1,5 +1,5 @@
 module "vault_on_doks" {
-  source = "modules/vault"
+  source = "./modules/vault"
 
   providers = {
     helm       = helm.doks

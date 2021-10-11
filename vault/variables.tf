@@ -9,8 +9,3 @@ variable "do_token" {
   description = "This is the DO API token."
   sensitive   = true
 }
-
-# see https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/kubernetes_cluster
-data "digitalocean_kubernetes_cluster" "cluster" {
-  name = "multi-cloud-k8s"
-}
