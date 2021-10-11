@@ -15,7 +15,7 @@ The Kubernetes Cluster can be consumed via the [google_container_cluster](https:
 # see https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/container_cluster
 data "google_container_cluster" "cluster" {
   name     = "multi-cloud-k8s"
-  location = "us-east1-a"
+  location = "us-west2"
 }
 ```
 
