@@ -5,6 +5,7 @@ module "eks" {
 
   cluster_name    = var.tfe_workspaces_prefix
   cluster_version = "1.20"
+  manage_aws_auth = false
 
   subnets = [
     data.aws_subnet.default["a"].id,
