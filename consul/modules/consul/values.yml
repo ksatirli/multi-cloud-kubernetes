@@ -1,0 +1,30 @@
+---
+global:
+  name: consul
+  acls:
+    manageSystemACLs: true
+  metrics:
+    enabled: true
+    enableAgentMetrics: true
+
+prometheus:
+  enabled: true
+
+server:
+  replicas: 1
+
+client:
+  enabled: true
+
+connectInject:
+  enabled: true
+  transparentProxy:
+    defaultEnabled: true
+
+ui:
+  enabled: true
+  service:
+    type: LoadBalancer
+
+controller:
+  enabled: true
