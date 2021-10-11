@@ -1,16 +1,16 @@
 ## see https://www.terraform.io/docs/language/values/outputs.html
-#output "cluster_id" {
-#  description = "EKS Cluster ID."
-#  value       = digitalocean_kubernetes_cluster.cluster.id
-#}
-#
-## see https://www.terraform.io/docs/language/values/outputs.html
-#output "cluster_name" {
-#  description = "EKS Cluster Name."
-#  value       = digitalocean_kubernetes_cluster.cluster.name
-#}
-#
-## see https://www.terraform.io/docs/language/values/outputs.html
+output "cluster_id" {
+  description = "EKS Cluster ID."
+  value       = module.eks.cluster_id
+}
+
+# see https://www.terraform.io/docs/language/values/outputs.html
+output "cluster_name" {
+  description = "EKS Cluster Name."
+  value       = var.tfe_workspaces_prefix
+}
+
+# see https://www.terraform.io/docs/language/values/outputs.html
 output "cluster_region" {
   description = "EKS Cluster Region."
   value       = var.aws_region
