@@ -5,16 +5,22 @@ module "consul_on_doks" {
     helm       = helm.doks
     kubernetes = kubernetes.doks
   }
-
-  # NOTE: this is NOT the version of Vault to use
-  chart_version = "0.34.1"
 }
 
-#module "consul_on_gke" {
-#  source = "./modules/consul"
-#
-#  providers = {
-#    helm       = helm.gke
-#    kubernetes = kubernetes.gke
-#  }
-#}
+module "grafana_on_doks" {
+  source = "./modules/grafana"
+
+  providers = {
+    helm       = helm.doks
+    kubernetes = kubernetes.doks
+  }
+}
+
+module "jaeger_on_doks" {
+  source = "./modules/jaeger"
+
+  providers = {
+    helm       = helm.doks
+    kubernetes = kubernetes.doks
+  }
+}

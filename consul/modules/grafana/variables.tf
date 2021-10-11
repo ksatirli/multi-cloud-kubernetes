@@ -1,5 +1,5 @@
 variable "chart_version" {
   type        = string
   description = "Specify the exact chart version to install."
-  default     = "0.34.1"
+  default     = "6.16.10"
 }

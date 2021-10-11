@@ -1,6 +1,6 @@
 variable "do_region" {
   type        = string
-  description = "he slug identifier for the region where the resources will be created."
+  description = "the slug identifier for the region where the resources will be created."
   default     = "sfo3" # San Francisco, CA
 }
 
