@@ -14,10 +14,19 @@
 
 The code in this repository is split out into a handful of distinct flows, each in their own directory:
 
+### `clusters` Workflows
+
 * `clusters/aks` contains code for Azure AKS Clusters
 * `clusters/doks` contains code for Digital Ocean Kubernetes Clusters
 * `clusters/eks` contains code for AWS EKS Clusters
 * `clusters/gke` contains code for Google Cloud GKE Clusters
+
+### `vault` Workflows
+
+* `vault/doks` contains code for deploying Vault on Digital Ocean Kubernetes Clusters
+
+### Other Workflows
+
 * `outputs` contains code for collecting distinctive outputs from all Workspaces in this repository
 * `workspaces` contains code for Terraform Cloud Workspaces
 
