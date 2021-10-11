@@ -5,7 +5,7 @@ resource "helm_release" "vault" {
   repository = "https://helm.releases.hashicorp.com/"
 
   # see https://github.com/hashicorp/vault-helm/tags
-  version    = "0.16.1" # NOTE: this is NOT the version of Vault to use
+  version    = var.chart_version # NOTE: this is NOT the version of Vault to use
 
   values = [
     file("${path.module}/values.yml")
