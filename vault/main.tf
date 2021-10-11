@@ -6,15 +6,5 @@ module "vault_on_doks" {
     kubernetes = kubernetes.doks
   }
 
-  # NOTE: this is NOT the version of Vault to use
-  chart_version = "0.16.1"
+  vault_dev_root_token = var.vault_token
 }
-
-#module "vault_on_gke" {
-#  source = "./modules/vault"
-#
-#  providers = {
-#    helm       = helm.gke
-#    kubernetes = kubernetes.gke
-#  }
-#}
