@@ -23,11 +23,11 @@ variable "tfe_workspaces" {
 
   default = [{
     description       = "Manages AKS Clusters."
-    execution_mode    = "local"
+    execution_mode    = "remote"
     working_directory = "/clusters/aks"
     }, {
     description       = "Manages DOKS Clusters."
-    execution_mode    = "local"
+    execution_mode    = "remote"
     working_directory = "/clusters/doks"
     }, {
     description       = "Manages EKS Clusters."
