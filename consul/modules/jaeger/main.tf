@@ -21,7 +21,7 @@ resource "kubernetes_deployment" "jaeger" {
 
   spec {
     replicas = 1
-  
+
     selector {
       match_labels = {
         app = "jaeger"
