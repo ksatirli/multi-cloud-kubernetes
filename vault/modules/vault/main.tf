@@ -55,3 +55,23 @@ path "transit/decrypt/payments_service" {
 }
 EOF
 }
+
+resource "vault_auth_backend" "kubernetes" {
+  type = "kubernetes"
+
+  tune {
+    max_lease_ttl      = "90000s"
+    listing_visibility = "unauth"
+  }
+}
+
+# see https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/kubernetes_auth_backend_config
+
+resource "vault_kubernetes_auth_backend_config" "kubernetes" {
+  backend                = vault_auth_backend.kubernetes.path
+  kubernetes_host        = "https://kubernetes.default.svc"
+  kubernetes_ca_cert     = data.kubernetes_secret.vault.data["ca.crt"]
+  token_reviewer_jwt     = data.kubernetes_secret.vault.data["token"]
+  issuer                 = "kubernetes/serviceaccount"
+  disable_iss_validation = "true"
+}
