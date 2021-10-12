@@ -9,7 +9,7 @@ resource "helm_release" "vault" {
 
   values = [
     templatefile("${path.module}/values.yml", {
-      dev_root_token = var.vault_dev_root_token
+      dev_root_token      = var.vault_dev_root_token
       add_to_service_mesh = var.add_to_service_mesh
     })
   ]

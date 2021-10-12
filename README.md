@@ -12,17 +12,21 @@
 
 ## Workflows
 
-The code in this repository is split out into a handful of distinct flows, each in their own directory:
+The code in this repository is split out into a handful of distinct workflows, each in their own directory.
 
-### `clusters` Workflows
+### Cluster Workflows
 
-* `clusters/aks` contains code for Azure AKS Clusters
-* `clusters/doks` contains code for Digital Ocean Kubernetes Clusters
-* `clusters/gke` contains code for Google Cloud GKE Clusters
+* `./clusters/aks` contains code for Azure AKS Clusters
+* `./clusters/eks` contains code for AWS EKS Clusters
+* `./clusters/doks` contains code for Digital Ocean Kubernetes Clusters
+* `./clusters/gke` contains code for Google Cloud GKE Clusters
 
-### `vault` Workflows
+### Workload Workflows
 
-* `vault` contains code for deploying Vault on Kubernetes Clusters
+* `./consul` contains configuration for deploying [HashiCorp Consul](https://www.consul.io)
+  * `./consul/modules/grafana` contains configuration for deploying [Grafana](https://grafana.com)
+  * `./consul/modules/jaeger` contains configuration for deploying [Jaeger](https://www.jaegertracing.io)
+* `./vault` contains configuration for deploying [HashiCorp Vault](https://www.vaultproject.io)
 
 ### Other Workflows
 
