@@ -23,7 +23,7 @@ module "transit_secrets_engine" {
 
   transit_keys = [
     {
-      name                   = "payments_service"
+      name                   = "expense_report_service"
       allow_plaintext_backup = false
       convergent_encryption  = false
       exportable             = false
@@ -36,26 +36,27 @@ module "transit_secrets_engine" {
   ]
 }
 
-resource "vault_policy" "payments_service_encryptor" {
+resource "vault_policy" "expense_report_service_encryptor" {
   name = "payments_service_encryptor"
 
   policy = <<EOF
-path "transit/encrypt/payments_service" {
+path "transit/encrypt/expense_report_service" {
    capabilities = [ "update" ]
 }
 EOF
 }
 
-resource "vault_policy" "payments_service_decryptor" {
+resource "vault_policy" "expense_report_service_decryptor" {
   name = "payments_service_decryptor"
 
   policy = <<EOF
-path "transit/decrypt/payments_service" {
+path "transit/decrypt/expense_report_service" {
    capabilities = [ "update" ]
 }
 EOF
 }
 
+# see https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/auth_backend
 resource "vault_auth_backend" "kubernetes" {
   type = "kubernetes"
 
@@ -74,4 +75,18 @@ resource "vault_kubernetes_auth_backend_config" "kubernetes" {
   token_reviewer_jwt     = data.kubernetes_secret.vault.data["token"]
   issuer                 = "kubernetes/serviceaccount"
   disable_iss_validation = "true"
+}
+
+# see https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/kubernetes_auth_backend_role
+resource "vault_kubernetes_auth_backend_role" "expense_report_service" {
+  backend                          = vault_auth_backend.kubernetes.path
+  role_name                        = "expense_report_service"
+  bound_service_account_names      = ["expense"]
+  bound_service_account_namespaces = ["default"]
+  token_ttl                        = 3600
+  token_policies                   = [
+    vault_policy.expense_report_service_decryptor.name,
+    vault_policy.expense_report_service_encryptor.name
+  ]
+  audience                         = "vault"
 }
