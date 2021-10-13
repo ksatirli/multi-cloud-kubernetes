@@ -37,7 +37,7 @@ module "transit_secrets_engine" {
 }
 
 resource "vault_policy" "expense_report_service_encryptor" {
-  name = "payments_service_encryptor"
+  name = "expense_report_service_encryptor"
 
   policy = <<EOF
 path "transit/encrypt/expense_report_service" {
@@ -47,7 +47,7 @@ EOF
 }
 
 resource "vault_policy" "expense_report_service_decryptor" {
-  name = "payments_service_decryptor"
+  name = "expense_report_service_decryptor"
 
   policy = <<EOF
 path "transit/decrypt/expense_report_service" {
