@@ -44,7 +44,7 @@ resource "vault_policy" "report_service_decryptor" {
   name = "report_service_decryptor"
 
   policy = <<EOF
-path "transit/encrypt/expense_report_service" {
+path "transit/decrypt/expense_report_service" {
    capabilities = [ "update" ]
 }
 EOF
@@ -59,7 +59,7 @@ resource "vault_policy" "expense_service_encryptor" {
   name = "expense_service_encryptor"
 
   policy = <<EOF
-path "transit/decrypt/expense_report_service" {
+path "transit/encrypt/expense_report_service" {
    capabilities = [ "update" ]
 }
 EOF
