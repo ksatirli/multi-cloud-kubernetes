@@ -34,6 +34,10 @@ module "transit_secrets_engine" {
       min_encryption_version = 1
     }
   ]
+
+  depends_on = [
+    helm_release.vault
+  ]
 }
 
 resource "vault_policy" "report_service_decryptor" {
@@ -44,6 +48,11 @@ path "transit/encrypt/expense_report_service" {
    capabilities = [ "update" ]
 }
 EOF
+
+  depends_on = [
+    helm_release.vault
+  ]
+
 }
 
 resource "vault_policy" "expense_service_encryptor" {
@@ -54,6 +63,11 @@ path "transit/decrypt/expense_report_service" {
    capabilities = [ "update" ]
 }
 EOF
+
+  depends_on = [
+    helm_release.vault
+  ]
+
 }
 
 # see https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/auth_backend
@@ -64,6 +78,11 @@ resource "vault_auth_backend" "kubernetes" {
     max_lease_ttl      = "90000s"
     listing_visibility = "unauth"
   }
+
+  depends_on = [
+    helm_release.vault
+  ]
+
 }
 
 # see https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/kubernetes_auth_backend_config
