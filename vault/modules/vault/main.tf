@@ -99,7 +99,7 @@ resource "vault_kubernetes_auth_backend_config" "kubernetes" {
 # see https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/kubernetes_auth_backend_role
 resource "vault_kubernetes_auth_backend_role" "expense_service" {
   backend                          = vault_auth_backend.kubernetes.path
-  role_name                        = "expense_report_service"
+  role_name                        = "expense"
   bound_service_account_names      = ["expense"]
   bound_service_account_namespaces = ["default"]
   token_ttl                        = 3600
@@ -111,7 +111,7 @@ resource "vault_kubernetes_auth_backend_role" "expense_service" {
 
 resource "vault_kubernetes_auth_backend_role" "report_service" {
   backend                          = vault_auth_backend.kubernetes.path
-  role_name                        = "report_service"
+  role_name                        = "report"
   bound_service_account_names      = ["report"]
   bound_service_account_namespaces = ["default"]
   token_ttl                        = 3600
