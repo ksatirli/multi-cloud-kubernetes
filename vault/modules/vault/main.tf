@@ -106,7 +106,6 @@ resource "vault_kubernetes_auth_backend_role" "expense_service" {
   token_policies                   = [
     vault_policy.expense_service_encryptor.name,
   ]
-  audience                         = "vault"
 }
 
 resource "vault_kubernetes_auth_backend_role" "report_service" {
@@ -118,5 +117,4 @@ resource "vault_kubernetes_auth_backend_role" "report_service" {
   token_policies                   = [
     vault_policy.report_service_decryptor.name,
   ]
-  audience                         = "vault"
 }
