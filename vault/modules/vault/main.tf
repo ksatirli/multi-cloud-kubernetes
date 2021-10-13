@@ -36,8 +36,8 @@ module "transit_secrets_engine" {
   ]
 }
 
-resource "vault_policy" "expense_report_service_encryptor" {
-  name = "expense_report_service_encryptor"
+resource "vault_policy" "report_service_decryptor" {
+  name = "report_service_decryptor"
 
   policy = <<EOF
 path "transit/encrypt/expense_report_service" {
@@ -46,8 +46,8 @@ path "transit/encrypt/expense_report_service" {
 EOF
 }
 
-resource "vault_policy" "expense_report_service_decryptor" {
-  name = "expense_report_service_decryptor"
+resource "vault_policy" "expense_service_encryptor" {
+  name = "expense_service_encryptor"
 
   policy = <<EOF
 path "transit/decrypt/expense_report_service" {
@@ -78,15 +78,26 @@ resource "vault_kubernetes_auth_backend_config" "kubernetes" {
 }
 
 # see https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/kubernetes_auth_backend_role
-resource "vault_kubernetes_auth_backend_role" "expense_report_service" {
+resource "vault_kubernetes_auth_backend_role" "expense_service" {
   backend                          = vault_auth_backend.kubernetes.path
   role_name                        = "expense_report_service"
   bound_service_account_names      = ["expense"]
   bound_service_account_namespaces = ["default"]
   token_ttl                        = 3600
   token_policies                   = [
-    vault_policy.expense_report_service_decryptor.name,
-    vault_policy.expense_report_service_encryptor.name
+    vault_policy.expense_service_encryptor.name,
+  ]
+  audience                         = "vault"
+}
+
+resource "vault_kubernetes_auth_backend_role" "report_service" {
+  backend                          = vault_auth_backend.kubernetes.path
+  role_name                        = "report_service"
+  bound_service_account_names      = ["report"]
+  bound_service_account_namespaces = ["default"]
+  token_ttl                        = 3600
+  token_policies                   = [
+    vault_policy.report_service_decryptor.name,
   ]
   audience                         = "vault"
 }
