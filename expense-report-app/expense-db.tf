@@ -16,7 +16,7 @@ resource "kubernetes_deployment" "expense_db_mysql" {
   }
 
   spec {
-    replicas = 3
+    replicas = 1
 
     selector {
       match_labels = {
@@ -63,8 +63,8 @@ resource "kubernetes_deployment" "expense_db_mysql" {
               port = 3306
             }
 
-            initial_delay_seconds = 3
-            period_seconds        = 3
+            initial_delay_seconds = 30
+            period_seconds        = 30
           }
         }
         service_account_name = kubernetes_service_account.expense_db_mysql.metadata.0.name
