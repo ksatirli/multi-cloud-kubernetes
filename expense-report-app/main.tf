@@ -1,20 +1,3 @@
-# see https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release
-resource "helm_release" "vault" {
-  chart      = "vault"
-  name       = "vault"
-  repository = "https://helm.releases.hashicorp.com/"
-
-  # see https://github.com/hashicorp/vault-helm/tags
-  version = var.chart_version # NOTE: this is NOT the version of Vault to use
-
-  values = [
-    templatefile("${path.module}/values.yml", {
-      dev_root_token      = var.vault_dev_root_token
-      add_to_service_mesh = var.add_to_service_mesh
-    })
-  ]
-}
-
 # See https://registry.terraform.io/modules/devops-rob/transit-secrets-engine/vault/latest
 
 module "transit_secrets_engine" {
@@ -34,10 +17,6 @@ module "transit_secrets_engine" {
       min_encryption_version = 1
     }
   ]
-
-  depends_on = [
-    helm_release.vault
-  ]
 }
 
 resource "vault_policy" "report_service_decryptor" {
@@ -48,10 +27,6 @@ path "transit/decrypt/expense_report_service" {
    capabilities = [ "update" ]
 }
 EOF
-
-  depends_on = [
-    helm_release.vault
-  ]
 
 }
 
@@ -64,10 +39,6 @@ path "transit/encrypt/expense_report_service" {
 }
 EOF
 
-  depends_on = [
-    helm_release.vault
-  ]
-
 }
 
 # see https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/auth_backend
@@ -79,9 +50,6 @@ resource "vault_auth_backend" "kubernetes" {
     listing_visibility = "unauth"
   }
 
-  depends_on = [
-    helm_release.vault
-  ]
 
 }
 
@@ -103,7 +71,7 @@ resource "vault_kubernetes_auth_backend_role" "expense_service" {
   bound_service_account_names      = ["expense"]
   bound_service_account_namespaces = ["default"]
   token_ttl                        = 3600
-  token_policies                   = [
+  token_policies = [
     vault_policy.expense_service_encryptor.name,
   ]
 }
@@ -114,7 +82,7 @@ resource "vault_kubernetes_auth_backend_role" "report_service" {
   bound_service_account_names      = ["report"]
   bound_service_account_namespaces = ["default"]
   token_ttl                        = 3600
-  token_policies                   = [
+  token_policies = [
     vault_policy.report_service_decryptor.name,
   ]
 }
