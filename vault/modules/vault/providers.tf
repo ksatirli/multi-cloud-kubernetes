@@ -12,11 +12,5 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "2.5.0"
     }
-
-    # see https://registry.terraform.io/providers/hashicorp/vault/latest/docs
-    vault = {
-      source  = "hashicorp/vault"
-      version = "2.24.1"
-    }
   }
 }
