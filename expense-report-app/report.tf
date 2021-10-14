@@ -35,7 +35,7 @@ resource "kubernetes_deployment" "report" {
         annotations = {
           "vault.hashicorp.com/agent-inject"       = "true"
           "vault.hashicorp.com/agent-init-first"   = "true"
-          "vault.hashicorp.com/role"               = vault_kubernetes_auth_backend_role.report_service.role_name  #"report"
+          "vault.hashicorp.com/role"               = vault_kubernetes_auth_backend_role.report_service.role_name #"report"
           "vault.hashicorp.com/agent-cache-enable" = "true"
         }
       }
@@ -43,7 +43,7 @@ resource "kubernetes_deployment" "report" {
       spec {
         service_account_name = kubernetes_service_account.report.metadata.0.name
         container {
-          image = "nicholasjackson/expenses-report:report-latest"
+          image = "nicholasjackson/expense-report:report-plaintext"
           name  = "expense"
 
           command = ["/bin/sh"]

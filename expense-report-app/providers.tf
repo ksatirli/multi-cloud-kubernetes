@@ -35,6 +35,6 @@ provider "digitalocean" {
 
 provider "vault" {
   address = "http://${data.kubernetes_service.vault.status.0.load_balancer.0.ingress.0.ip}:8200"
-  token   = var.vault_dev_root_token
+  token   = "root"
 }
 

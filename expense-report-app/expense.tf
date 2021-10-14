@@ -43,7 +43,7 @@ resource "kubernetes_deployment" "expense" {
       spec {
         service_account_name = kubernetes_service_account.expense.metadata.0.name
         container {
-          image = "nicholasjackson/expenses-report:expense-latest"
+          image = "nicholasjackson/expense-report:expense-plaintext"
           name  = "expense"
 
           command = ["/bin/sh"]
