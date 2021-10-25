@@ -58,5 +58,5 @@ variable "tfe_workspaces_prefix" {
 variable "tfe_workspace_terraform_version" {
   type        = string
   description = "The version of Terraform to use for this workspace."
-  default     = "1.0.8"
+  default     = "1.0.9"
 }
