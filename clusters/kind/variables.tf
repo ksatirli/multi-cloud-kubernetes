@@ -7,7 +7,8 @@ variable "tfe_workspaces_prefix" {
 # see https://github.com/kubernetes-sigs/kind/releases
 # The default node image is a Kubernetes v1.21.1
 variable "kind_kubernetes_version" {
-  type    = string
+  type            = string
+  description = "Kubernetes version to use with Kind Cluster."
   default = "v1.21.1"
 }
 

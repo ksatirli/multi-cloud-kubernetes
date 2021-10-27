@@ -4,7 +4,8 @@
 
 ## Requirements
 
-* Terraform CLI `1.0.8` or newer
+* Terraform CLI `1.0.9` or newer
+* ```
 
 ## Downstream Consumption
 

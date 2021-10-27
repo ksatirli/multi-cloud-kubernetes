@@ -23,7 +23,7 @@ The code in this repository is split out into a handful of distinct workflows, e
 * `./clusters/eks` contains code for AWS EKS Clusters
 * `./clusters/doks` contains code for Digital Ocean Kubernetes Clusters
 * `./clusters/gke` contains code for Google Cloud GKE Clusters
-* `./clusters/kind` contains code for Kubernetes in Docker (kind) Clusters via `Terraform Kind Provider`
+* `./clusters/kind` contains code for Kubernetes in Docker (kind) Clusters
 
 ### Workload Workflows
 

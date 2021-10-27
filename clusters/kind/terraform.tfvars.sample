@@ -1,10 +1,2 @@
-variable "kind_kubernetes_version" {
-  type    = string
-  default = "v1.21.1"
-}
-
-variable "kind_cluster_config_path" {
-  type        = string
-  description = "The location where this cluster's kubeconfig will be saved to."
-  default     = "~/.kube/config"
-}
+kind_kubernetes_version = "v1.21.1"
+kind_cluster_config_path = "~/.kube/config"
