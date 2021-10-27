@@ -3,7 +3,8 @@ resource "kind_cluster" "cluster" {
   name            = var.tfe_workspaces_prefix
   kubeconfig_path = pathexpand(var.kind_cluster_config_path)
   wait_for_ready  = true
-  # see https://github.com/kubernetes-sigs/kind/releases
+
+# see https://github.com/kubernetes-sigs/kind/releases
   node_image = "kindest/node:${var.kind_kubernetes_version}"
   # see https://github.com/kyma-incubator/terraform-provider-kind/blob/master/kind/structure_kind_config.go
   kind_config {
