@@ -9,12 +9,12 @@
 
 ## Downstream Consumption
 
-The Kubernetes Cluster can be consumed via the [kind_cluster](https://kind.sigs.k8s.io/docs/user/quick-start/) data source:
+The Kubernetes Cluster can be consumed via the [attributes reference](https://registry.terraform.io/providers/kyma-incubator/kind/latest/docs/resources/cluster#attributes-reference):
 
 ```hcl
-# see https://registry.terraform.io/providers/kyma-incubator/kind/latest/docs/resources/cluster#attributes-reference
-data "kind_cluster" "cluster" {
-  name = "multi-cloud-k8s"
+output "cluster_config" {
+  description = "Kind Cluster Config."
+  value       = kind_cluster.cluster.kubeconfig
 }
 ```
 

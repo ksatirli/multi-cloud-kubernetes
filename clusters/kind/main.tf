@@ -5,6 +5,7 @@ resource "kind_cluster" "cluster" {
   wait_for_ready  = true
 
 # see https://github.com/kubernetes-sigs/kind/releases
+# ex: v1.21.1@sha256:fae9a58f17f18f06aeac9772ca8b5ac680ebbed985e266f711d936e91d113bad
   node_image = "kindest/node:${var.kind_kubernetes_version}"
 
 # see https://github.com/kyma-incubator/terraform-provider-kind/blob/master/kind/structure_kind_config.go

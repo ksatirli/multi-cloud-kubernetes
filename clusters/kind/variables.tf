@@ -8,7 +8,7 @@ variable "tfe_workspaces_prefix" {
 variable "kind_kubernetes_version" {
   type        = string
   description = "Kubernetes version to use with Kind Cluster."
-  default     = "v1.21.1"
+  default     = "v1.21.1@sha256:fae9a58f17f18f06aeac9772ca8b5ac680ebbed985e266f711d936e91d113bad"
 }
 
 variable "kind_cluster_config_path" {
