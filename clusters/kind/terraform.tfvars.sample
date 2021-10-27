@@ -1,2 +1,2 @@
-kind_kubernetes_version = "v1.21.1"
+kind_kubernetes_version  = "v1.21.1"
 kind_cluster_config_path = "~/.kube/config"
