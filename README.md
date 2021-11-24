@@ -7,6 +7,9 @@
 - [Multi-Cloud Kubernetes](#multi-cloud-kubernetes)
   - [Table of Contents](#table-of-contents)
   - [Workflows](#workflows)
+    - [Cluster Workflows](#cluster-workflows)
+    - [Workload Workflows](#workload-workflows)
+    - [Other Workflows](#other-workflows)
   - [Author Information](#author-information)
   - [License](#license)
 
@@ -20,6 +23,7 @@ The code in this repository is split out into a handful of distinct workflows, e
 * `./clusters/eks` contains code for AWS EKS Clusters
 * `./clusters/doks` contains code for Digital Ocean Kubernetes Clusters
 * `./clusters/gke` contains code for Google Cloud GKE Clusters
+* `./clusters/kind` contains code for Kubernetes in Docker (kind) Clusters
 
 ### Workload Workflows
 

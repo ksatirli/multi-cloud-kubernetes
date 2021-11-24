@@ -7,7 +7,8 @@ variable "tfe_workspaces" {
     "aks",
     "eks",
     "doks",
-    "gke"
+    "gke",
+    "kind"
   ]
 }
 
