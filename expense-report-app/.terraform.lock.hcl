@@ -3,9 +3,8 @@
 
 provider "registry.terraform.io/digitalocean/digitalocean" {
   version     = "2.14.0"
-  constraints = "2.14.0"
+  constraints = "~> 2.0"
   hashes = [
-    "h1:VgOC/Y3OIYezumhYMYhETZyQWjYLzDZwHBNRSezuf90=",
     "h1:mweBY6X5RubSqiJwqj8m1gURO4NB1Wgfaihy1TwWqpY=",
     "zh:0714ad222e337fb8554b7895172c97b88d8a1dbfa9627c3dda1e01406c7e166d",
     "zh:2392648a6cba18f80e3c2ba6549669f7efbbd7cd32fdb1995f261c511910d6c6",
@@ -25,31 +24,10 @@ provider "registry.terraform.io/digitalocean/digitalocean" {
   ]
 }
 
-provider "registry.terraform.io/hashicorp/helm" {
-  version     = "2.3.0"
-  constraints = "2.3.0"
-  hashes = [
-    "h1:mLNIobQGKfv/9kCqe7+41y2K8bC/Kjet4Fzc+ImcZeM=",
-    "h1:qo08yDJAnkE8H2CNuI2fVP2W+J3bOCrXWRvAerQpgc8=",
-    "zh:0c63c0aa9f13ec057971c9ddd0965e062b064c0b2ce9a3d13df41239b8f5af89",
-    "zh:14b4146e56b1c1e5492ce597d03fb993a71039dd701e3886667f7ad3d60afd34",
-    "zh:3882a3a091aeac1d42a01c7654c727a46870185d363454579e707c672a42f430",
-    "zh:3ccb84b23348e2b64ffe273170f686e6927e974060e37b52459ab2395bd59523",
-    "zh:4fb709aeb63dd6dee1e851459ac87c399ddb831ebfe9e28e4c9827c65bb55b67",
-    "zh:6739a4da9510f552b93fa77859f04c20af3a7a40a7f0b0073eb723af36b8156b",
-    "zh:7432b070124a161fe6a32dc6b76fd45100d079fdee917318460a82b80cda5518",
-    "zh:9aa51dc2a649fcaac133dad5c1e148c2e0f675fdf18b1d3b1da53549d8fa3b36",
-    "zh:a9a2abf1fbec56019473c8696d285703218ea0e8f2dc01879e7a391ea8785d57",
-    "zh:b3c25b085b7a7fbc05000303d82c54531987525575ff337e4be6fc152f4200d4",
-    "zh:fa8cb34df7786bbeffcee664eab72aeb15c4f8fba2d9c0b05faca6b3e819cf33",
-  ]
-}
-
 provider "registry.terraform.io/hashicorp/kubernetes" {
   version     = "2.5.0"
   constraints = "2.5.0"
   hashes = [
-    "h1:gWcWwaZRr45P/3uejuRWOPfAOIX0tuyt2oYe+c7yJgY=",
     "h1:jGtgaO9DCgGHMMqi60ZMcqhMOLn2gp1yrF1alMjag2k=",
     "zh:00aa1fe7c5a1872d2861a0c45dab7a927e445ed5ea49aed497d61cd739926b5d",
     "zh:12bd420f2535f1b02f03147764d91846dceda30e7c08a9f637ff1f26829f21c0",
@@ -69,7 +47,7 @@ provider "registry.terraform.io/hashicorp/vault" {
   version     = "2.24.1"
   constraints = "2.24.1"
   hashes = [
-    "h1:MUzJ+jOOPBoyGNWGjESE+t2rIjTobw08Y73jgU+d+EU=",
+    "h1:BYE99Z9O73t1aF38BQ5eOvBR9Rjdw6+UOkst+s7cj5k=",
     "zh:1968be03bbc83c9f512a60f0a018cb0cf4c9a4a0f9e606f9a7436ae06108200f",
     "zh:23ef25b530dcf2f60692e261d2a56c112138d79a739f2c720bee818cf040a20f",
     "zh:2b80879cf8110254eeeb55b36ce542e9cdaefc047d450368ff0ca631b29d41d6",

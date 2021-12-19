@@ -14,3 +14,22 @@ resource "helm_release" "vault" {
     })
   ]
 }
+
+resource "kubernetes_service" "vault" {
+  metadata {
+    name = "vault-public"
+  }
+  spec {
+    selector = {
+      "app.kubernetes.io/name" = "vault"
+      "component" = "server"
+    }
+    port {
+      port        = 8200
+      target_port = 8200
+    }
+
+    type = "LoadBalancer"
+  }
+}
+
