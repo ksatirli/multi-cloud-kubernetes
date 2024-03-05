@@ -18,7 +18,7 @@ module "aks" {
   prefix                          = var.tfe_workspaces_prefix
   vnet_subnet_id                  = module.network.vnet_subnets[0]
 
-  # see https://www.terraform.io/docs/language/meta-arguments/depends_on.html
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on
   depends_on = [
     module.network
   ]

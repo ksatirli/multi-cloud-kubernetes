@@ -9,7 +9,7 @@ module "network" {
   subnet_prefixes = ["11.0.1.0/24"]
   subnet_names    = ["subnet1"]
 
-  # see https://www.terraform.io/docs/language/meta-arguments/depends_on.html
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on
   depends_on = [
     azurerm_resource_group.cluster
   ]

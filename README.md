@@ -4,14 +4,27 @@
 
 ## Table of Contents
 
-- [Multi-Cloud Kubernetes](#multi-cloud-kubernetes)
-  - [Table of Contents](#table-of-contents)
-  - [Workflows](#workflows)
-    - [Cluster Workflows](#cluster-workflows)
-    - [Workload Workflows](#workload-workflows)
-    - [Other Workflows](#other-workflows)
-  - [Author Information](#author-information)
-  - [License](#license)
+<!-- TOC -->
+* [Multi-Cloud Kubernetes](#multi-cloud-kubernetes)
+  * [Table of Contents](#table-of-contents)
+  * [Requirements](#requirements)
+  * [Workflows](#workflows)
+    * [Cluster Workflows](#cluster-workflows)
+  * [Notes](#notes)
+  * [Author Information](#author-information)
+  * [License](#license)
+<!-- TOC -->
+
+## Requirements
+
+* Terraform `1.7.0` or [newer](https://developer.hashicorp.com/terraform/downloads).
+* Terraform Cloud [Account](https://app.terraform.io/session)
+
+* one or more service provider accounts:
+  * AWS [account](https://aws.amazon.com/account/) for `clusters/eks`
+  * DigitalOcean [account](https://m.do.co/c/53544ec84215) for `clusters/doks`
+  * Microsoft Azure [account](https://azure.microsoft.com/free) for `clusters/aks`
+  * Google Cloud [account](https://console.cloud.google.com/) for `clusters/gke`
 
 ## Workflows
 
@@ -25,19 +38,13 @@ The code in this repository is split out into a handful of distinct workflows, e
 * `./clusters/gke` contains code for Google Cloud GKE Clusters
 * `./clusters/kind` contains code for Kubernetes in Docker (kind) Clusters
 
-### Workload Workflows
-
-* `./consul` contains configuration for deploying [HashiCorp Consul](https://www.consul.io)
-  * `./consul/modules/grafana` contains configuration for deploying [Grafana](https://grafana.com)
-  * `./consul/modules/jaeger` contains configuration for deploying [Jaeger](https://www.jaegertracing.io)
-* `./vault` contains configuration for deploying [HashiCorp Vault](https://www.vaultproject.io)
-
-### Other Workflows
-
-* `outputs` contains code for collecting distinctive outputs from all Workspaces in this repository
-* `workspaces` contains code for Terraform Cloud Workspaces
-
 Each directory contains its own `README.md` with information relevant to the workflow.
+
+## Notes
+
+* By default,
+
+* A previous version of this repository featured Consul and Vault deployments. The code for this is accessible via the [`v1` Tag](https://github.com/ksatirli/multi-cloud-kubernetes/releases/tag/v1).
 
 ## Author Information
 
