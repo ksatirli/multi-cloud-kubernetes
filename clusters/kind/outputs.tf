@@ -14,7 +14,7 @@ output "cluster_client_certificate" {
 output "cluster_client_key" {
   description = "Kind Cluster Client Key."
   value       = kind_cluster.cluster.client_key
-  sensitive = true
+  sensitive   = true
 }
 
 # see https://developer.hashicorp.com/terraform/language/values/outputs

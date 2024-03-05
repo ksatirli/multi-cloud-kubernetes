@@ -7,7 +7,7 @@ variable "tfe_workspaces_prefix" {
 variable "aws_region" {
   type        = string
   description = "This is the AWS region."
-  default     = "us-west-1" # N. California, US
+  default     = "eu-west-3" # France, EU
 }
 
 variable "subnet_az" {
@@ -16,6 +16,6 @@ variable "subnet_az" {
 
   default = [
     "a",
-    "c",
+    "b",
   ]
 }

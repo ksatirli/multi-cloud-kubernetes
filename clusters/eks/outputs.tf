@@ -19,7 +19,7 @@ output "cluster_region" {
 # see https://developer.hashicorp.com/terraform/language/values/outputs
 output "console_url" {
   description = "AWS Console URL."
-  value       = "https://${var.aws_region}.console.aws.amazon.com/ecs/home?region=${var.aws_region}#/clusters"
+  value       = "https://${var.aws_region}.console.aws.amazon.com/eks/home?region=${var.aws_region}#/clusters/${module.eks.cluster_name}"
 }
 
 # this variable is used for testing purposes and has no bearing on the demo

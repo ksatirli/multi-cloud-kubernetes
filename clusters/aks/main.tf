@@ -4,10 +4,10 @@ resource "azurerm_resource_group" "cluster" {
   location = var.azure_region
 }
 
-# see https://registry.terraform.io/modules/Azure/aks/azurerm/4.13.0
+# see https://registry.terraform.io/modules/Azure/aks/azurerm/8.0.0
 module "aks" {
   source  = "Azure/aks/azurerm"
-  version = "4.13.0"
+  version = "8.0.0"
 
   resource_group_name             = azurerm_resource_group.cluster.name
   agents_count                    = 3

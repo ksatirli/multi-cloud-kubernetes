@@ -1,10 +1,10 @@
 terraform {
   # see https://developer.hashicorp.com/terraform/language/settings#specifying-provider-requirements
   required_providers {
-    # see https://registry.terraform.io/providers/hashicorp/google/3.87.0
+    # see https://registry.terraform.io/providers/hashicorp/google/5.19.0
     google = {
       source  = "hashicorp/google"
-      version = "3.87.0"
+      version = "5.19.0"
     }
   }
 }
