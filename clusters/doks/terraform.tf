@@ -1,6 +1,6 @@
 terraform {
-  # see https://www.terraform.io/docs/language/settings/backends/remote.html
-  backend "remote" {
+  # see https://developer.hashicorp.com/terraform/language/settings/terraform-cloud
+  cloud {
     hostname     = "app.terraform.io"
     organization = "a-demo-organization"
 
@@ -9,7 +9,7 @@ terraform {
     }
   }
 
-  # see https://www.terraform.io/docs/language/settings/index.html#specifying-provider-requirements
+  # see https://developer.hashicorp.com/terraform/language/settings#specifying-provider-requirements
   required_providers {
     # see https://registry.terraform.io/providers/digitalocean/digitalocean/2.14.0
     digitalocean = {
@@ -18,6 +18,6 @@ terraform {
     }
   }
 
-  # see https://www.terraform.io/docs/language/settings/index.html#specifying-a-required-terraform-version
+  # see https://developer.hashicorp.com/terraform/language/settings#specifying-a-required-terraform-version
   required_version = "1.7.4"
 }

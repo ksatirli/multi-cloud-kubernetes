@@ -1,5 +1,5 @@
 terraform {
-  # see https://www.terraform.io/docs/language/settings/index.html#specifying-provider-requirements
+  # see https://developer.hashicorp.com/terraform/language/settings#specifying-provider-requirements
   required_providers {
     # see https://registry.terraform.io/providers/hashicorp/google/3.87.0
     google = {
@@ -11,7 +11,7 @@ terraform {
 
 # see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
 resource "google_project_iam_member" "terraform_cloud" {
-  # see https://www.terraform.io/docs/language/meta-arguments/for_each.html
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
   for_each = {
     for role in var.iam_roles :
     role => role
@@ -24,7 +24,7 @@ resource "google_project_iam_member" "terraform_cloud" {
 
 # see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
 resource "google_project_service" "project" {
-  # see https://www.terraform.io/docs/language/meta-arguments/for_each.html
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
   for_each = {
     for service in var.project_services :
     service => service
