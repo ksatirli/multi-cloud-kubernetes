@@ -17,7 +17,7 @@
 
 ## Requirements
 
-* Terraform `1.7.5` or [newer](https://developer.hashicorp.com/terraform/downloads).
+* Terraform `1.7.4` or [newer](https://developer.hashicorp.com/terraform/downloads).
 * Terraform Cloud [Account](https://app.terraform.io/session)
 
 * one or more service provider accounts:
