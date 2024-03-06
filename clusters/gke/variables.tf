@@ -2,7 +2,7 @@
 variable "google_region" {
   type        = string
   description = "The region will be used to choose the default location for regional resources."
-  default     = "us-west2" # Los Angeles, CA
+  default     = "europe-west9" # Paris
 }
 
 variable "google_project" {
