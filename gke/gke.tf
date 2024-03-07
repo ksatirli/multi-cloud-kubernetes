@@ -1,38 +1,45 @@
+# see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
 resource "google_service_account" "cluster" {
   account_id = "cluster-${var.tfe_workspaces_prefix}"
   project    = var.google_project
 }
 
+# see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
 resource "google_project_iam_member" "cluster_log_writer" {
   role    = "roles/logging.logWriter"
   member  = "serviceAccount:${google_service_account.cluster.email}"
   project = var.google_project
 }
 
+# see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
 resource "google_project_iam_member" "cluster_metric_writer" {
   role    = "roles/monitoring.metricWriter"
   member  = "serviceAccount:${google_service_account.cluster.email}"
   project = var.google_project
 }
 
+# see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
 resource "google_project_iam_member" "cluster_monitoring_viewer" {
   role    = "roles/monitoring.viewer"
   member  = "serviceAccount:${google_service_account.cluster.email}"
   project = var.google_project
 }
 
+# see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
 resource "google_project_iam_member" "cluster_resource_metadata_writer" {
   role    = "roles/stackdriver.resourceMetadata.writer"
   member  = "serviceAccount:${google_service_account.cluster.email}"
   project = var.google_project
 }
 
+# see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
 resource "google_project_iam_member" "cluster_metrics_writer" {
   role    = "roles/autoscaling.metricsWriter"
   member  = "serviceAccount:${google_service_account.cluster.email}"
   project = var.google_project
 }
 
+# see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster
 resource "google_container_cluster" "default" {
   #checkov:skip=CKV_GCP_66: Binary Authorization does not work well
   #checkov:skip=CKV_GCP_24: Pod Security Policy is not available after 1.25
@@ -91,7 +98,7 @@ resource "google_container_cluster" "default" {
 
   # enable shielded nodes (although we only have a default node for a short period of time)
   node_config {
-    machine_type    = "n2-standard-4"
+    machine_type    = var.machine_type
     image_type      = "COS_CONTAINERD"
     service_account = google_service_account.cluster.email
     oauth_scopes    = ["https://www.googleapis.com/auth/cloud-platform"]
@@ -107,6 +114,7 @@ resource "google_container_cluster" "default" {
   }
 }
 
+# see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool
 resource "google_container_node_pool" "default" {
   name               = var.tfe_workspaces_prefix
   project            = var.google_project
@@ -114,7 +122,7 @@ resource "google_container_node_pool" "default" {
   initial_node_count = 1 # per zone
 
   node_config {
-    machine_type    = "n2-standard-4"
+    machine_type    = var.machine_type
     image_type      = "COS_CONTAINERD"
     service_account = google_service_account.cluster.email
     oauth_scopes    = ["https://www.googleapis.com/auth/cloud-platform"]
