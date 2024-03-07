@@ -4,7 +4,7 @@
 
 ## Requirements
 
-* Terraform CLI `1.0.8` or newer
+* Terraform CLI `1.7.4` or newer
 * a Digital Ocean [account](https://m.do.co/c/b73b4af31c09)
 
 ## Downstream Consumption
