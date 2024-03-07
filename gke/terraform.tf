@@ -5,7 +5,7 @@ terraform {
     organization = "a-demo-organization"
 
     workspaces {
-      name = "multi-cloud-k8s-eks"
+      name = "multi-cloud-k8s-gke"
     }
   }
 
@@ -14,6 +14,12 @@ terraform {
     # see https://registry.terraform.io/providers/hashicorp/google/5.18.0
     google = {
       source  = "hashicorp/google"
+      version = "5.18.0"
+    }
+
+    # see https://registry.terraform.io/providers/hashicorp/google-beta/5.18.0
+    google-beta = {
+      source  = "hashicorp/google-beta"
       version = "5.18.0"
     }
   }
