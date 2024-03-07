@@ -1,10 +1,10 @@
 locals {
-  /*  For more information on configuring IAP TCP forwarding see: 
-  https://cloud.google.com/iap/docs/using-tcp-forwarding#create-firewall-rule  */
+  # For more information on configuring IAP TCP forwarding see: 
+  # https://cloud.google.com/iap/docs/using-tcp-forwarding#create-firewall-rule  */
   iap_tcp_forwarding_cidr_range = "35.235.240.0/20"
 
-  /*  For more information on configuring private Google access see: 
-  https://cloud.google.com/vpc/docs/configure-private-google-access#config  */
+  # For more information on configuring private Google access see: 
+  # https://cloud.google.com/vpc/docs/configure-private-google-access#config  */
   private_google_access_cidr_range    = "199.36.153.8/30"
   restricted_google_access_cidr_range = "199.36.153.4/30"
 
