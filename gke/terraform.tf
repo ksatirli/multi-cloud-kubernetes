@@ -1,11 +1,11 @@
 terraform {
-  # see https://www.terraform.io/docs/language/settings/backends/remote.html
-  backend "remote" {
+  # see https://developer.hashicorp.com/terraform/language/settings/terraform-cloud
+  cloud {
     hostname     = "app.terraform.io"
     organization = "a-demo-organization"
 
     workspaces {
-      name = "multi-cloud-k8s-gke"
+      name = "multi-cloud-k8s-eks"
     }
   }
 
