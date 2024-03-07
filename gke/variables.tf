@@ -10,6 +10,12 @@ variable "google_project" {
   description = "The project indicates the default GCP project all of your resources will be created in."
 }
 
+variable "machine_type" {
+  type        = string
+  description = "The machine type to be used for the GKE nodes."
+  default     = "n2-standard-4"
+}
+
 # see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#role
 variable "iam_roles" {
   type        = list(string)
