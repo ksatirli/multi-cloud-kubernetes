@@ -1,4 +1,6 @@
 locals {
+  # these are the required Google Cloud services you need to enable in your project
+  # to deploy this GKE (VPC-native) cluster.
   services = [
     "serviceusage.googleapis.com",
     "container.googleapis.com",
