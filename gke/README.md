@@ -17,7 +17,8 @@
 
 ## Requirements
 
-* Terraform CLI `1.7.4` or newer
+* Terraform `1.7.4` or [newer](https://developer.hashicorp.com/terraform/downloads).
+* Terraform Cloud [Account](https://app.terraform.io/session)
 * Google Cloud [account](https://console.cloud.google.com/)
 
 ## Usage
@@ -31,35 +32,22 @@ For more information, including detailed usage guidelines, see the [Terraform do
 
 | Name | Description | Type | Required |
 |------|-------------|------|:--------:|
-| discord_application_id | Discord Application Identifier. | `string` | yes |
-| discord_server_id | Discord Server Identifier. | `string` | yes |
-| discord_token | Discord API Token. | `string` | yes |
-| project_identifier | Human-readable Project Identifier. | `string` | yes |
-| discord_administrators | List of Discord User IDs to add to the Administrator Role. | `list(string)` | no |
-| discord_bots | List of Discord User IDs to add to the Bots Role. | `list(string)` | no |
-| discord_colors | Hex Codes for Discord Roles. | <pre>object({<br>    administrators = string<br>    bots           = string<br>    maintainers    = string<br>    moderators     = string<br>  })</pre> | no |
-| discord_maintainers | List of Discord User IDs to add to the Maintainers Role. | `list(string)` | no |
-| discord_moderators | List of Discord User IDs to add to the Moderators Role. | `list(string)` | no |
+| google_project | The project indicates the default GCP project all of your resources will be created in. | `string` | yes |
+| google_region | The region will be used to choose the default location for regional resources. | `string` | no |
+| iam_roles | List of IAM Roles. | `list(string)` | no |
+| machine_type | The machine type to be used for the GKE nodes. | `string` | no |
+| project_services | List of Project Services. | `list(string)` | no |
+| tfe_workspaces_prefix | Prefix for TFE Workspaces. | `string` | no |
 
 ### Outputs
 
 | Name | Description |
 |------|-------------|
-| discord_category_channel_general | Exported Attributes for `discord_category_channel.general`. |
-| discord_category_channel_info | Exported Attributes for `discord_category_channel.info`. |
-| discord_category_channel_internal | Exported Attributes for `discord_category_channel.internal`. |
-| discord_category_channel_labs | Exported Attributes for `discord_category_channel.labs`. |
-| discord_role_administrators | Exported Attributes for `discord_role.administrators`. |
-| discord_role_bots | Exported Attributes for `discord_role.bots`. |
-| discord_role_everyone | Exported Attributes for `discord_role_everyone.everyone`. |
-| discord_role_everyone_view_only | Exported Attributes for `discord_role.everyone_view_only`. |
-| discord_role_moderators | Exported Attributes for `discord_role.moderators`. |
-| discord_server | Exported Attributes for `discord_server`. |
-| discord_system_channel | Exported Attributes for `discord_system_channel.main`. |
-| discord_text_channel_general | Exported Attributes for `discord_text_channel.general`. |
-| discord_text_channel_internal | Exported Attributes for `discord_text_channel.internal`. |
-| discord_text_channel_notifications | Exported Attributes for `discord_text_channel.notifications`. |
-| discord_text_channel_rules | Exported Attributes for `discord_text_channel.rules`. |
+| cluster_id | GKE Cluster ID. |
+| cluster_name | GKE Cluster Name. |
+| cluster_region | GKE Cluster Region. |
+| console_url | Google Cloud Console URL. |
+| workspace_url | Terraform Cloud Workspace URL. |
 <!-- END_TF_DOCS -->
 
 ### Downstream Consumption
