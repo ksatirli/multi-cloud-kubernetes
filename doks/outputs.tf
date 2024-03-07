@@ -19,7 +19,13 @@ output "cluster_region" {
 # see https://developer.hashicorp.com/terraform/language/values/outputs
 output "console_url" {
   description = "DigitalOcean Console URL."
-  value       = "https://cloud.digitalocean.com/kubernetes/clusters"
+  value       = "https://cloud.digitalocean.com/kubernetes/clusters/${digitalocean_kubernetes_cluster.cluster.id}"
+}
+
+# see https://developer.hashicorp.com/terraform/language/values/outputs
+output "command_add_to_kubeconfig" {
+  description = "Command to add Cluster to .kubeconfig."
+  value       = "doctl kubernetes cluster kubeconfig save ${digitalocean_kubernetes_cluster.cluster.id}"
 }
 
 # this variable is used for testing purposes and has no bearing on the demo

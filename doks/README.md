@@ -40,6 +40,7 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | cluster_id | DOKS Cluster ID. |
 | cluster_name | DOKS Cluster Name. |
 | cluster_region | DOKS Cluster Region. |
+| command_add_to_kubeconfig | Command to add Cluster to .kubeconfig. |
 | console_url | DigitalOcean Console URL. |
 | workspace_url | this variable is used for testing purposes and has no bearing on the demo see https://developer.hashicorp.com/terraform/language/values/outputs |
 <!-- END_TF_DOCS -->
