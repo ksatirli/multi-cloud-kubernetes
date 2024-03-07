@@ -5,19 +5,19 @@ terraform {
     organization = "a-demo-organization"
 
     workspaces {
-      name = "multi-cloud-k8s-gke"
+      name = "multi-cloud-k8s-eks"
     }
   }
 
-  # see https://developer.hashicorp.com/terraform/language/settings#specifying-provider-requirements
+  # see https://www.terraform.io/docs/language/settings/index.html#specifying-provider-requirements
   required_providers {
-    # see https://registry.terraform.io/providers/hashicorp/google/5.19.0
+    # see https://registry.terraform.io/providers/hashicorp/google/5.18.0
     google = {
       source  = "hashicorp/google"
-      version = "5.19.0"
+      version = "5.18.0"
     }
   }
 
-  # see https://developer.hashicorp.com/terraform/language/settings#specifying-a-required-terraform-version
+  # see https://www.terraform.io/docs/language/settings/index.html#specifying-a-required-terraform-version
   required_version = "1.7.4"
 }

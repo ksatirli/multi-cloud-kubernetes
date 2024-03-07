@@ -2,12 +2,18 @@
 variable "google_region" {
   type        = string
   description = "The region will be used to choose the default location for regional resources."
-  default     = "us-west2" # Los Angeles, CA
+  default     = "europe-west9" # Paris
 }
 
 variable "google_project" {
   type        = string
   description = "The project indicates the default GCP project all of your resources will be created in."
+}
+
+variable "machine_type" {
+  type        = string
+  description = "The machine type to be used for the GKE nodes."
+  default     = "n2-standard-4"
 }
 
 # see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#role

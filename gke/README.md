@@ -21,4 +21,4 @@ data "google_container_cluster" "cluster" {
 
 ## Notes
 
-The implementation of this GKE Cluster is based on previous work carried out by [Rosemary Wang](https://github.com/joatmon08/expense-report/tree/main/terraform).
+The implementation of this GKE Cluster is based on previous work carried out by [Bruno Schaatsbergen](https://github.com/bschaatsbergen/proxying-your-way-into-gke). If you're looking to setup a private GKE Cluster, we recommend checking out this repository to understand how to access it, and manage the resources inside using Terraform.".

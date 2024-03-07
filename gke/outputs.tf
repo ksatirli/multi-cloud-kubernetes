@@ -1,3 +1,4 @@
+# see https://developer.hashicorp.com/terraform/language/values/outputs
 output "console_url" {
   description = "Google Cloud Console URL."
   value       = "https://console.cloud.google.com/home/activity?project=${var.tfe_workspaces_prefix}"
@@ -6,19 +7,19 @@ output "console_url" {
 # see https://developer.hashicorp.com/terraform/language/values/outputs
 output "cluster_id" {
   description = "GKE Cluster ID."
-  value       = google_container_cluster.cluster.id
+  value       = google_container_cluster.default.id
 }
 
 # see https://developer.hashicorp.com/terraform/language/values/outputs
 output "cluster_name" {
   description = "GKE Cluster Name."
-  value       = google_container_cluster.cluster.name
+  value       = google_container_cluster.default.name
 }
 
 # see https://developer.hashicorp.com/terraform/language/values/outputs
 output "cluster_region" {
   description = "GKE Cluster Region."
-  value       = google_container_cluster.cluster.location
+  value       = google_container_cluster.default.location
 }
 
 # this variable is used for testing purposes and has no bearing on the demo
