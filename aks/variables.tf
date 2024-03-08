@@ -7,5 +7,5 @@ variable "tfe_workspaces_prefix" {
 variable "azure_region" {
   type        = string
   description = "The Azure Region where the Resources should exist."
-  default     = "westus"
+  default     = "francecentral"
 }

@@ -14,8 +14,8 @@ locals {
 
 # see https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
 resource "google_project_service" "default" {
-  for_each                   = toset(local.services)
-  service                    = each.value
-  disable_on_destroy         = false
-  project                    = var.google_project
+  for_each           = toset(local.services)
+  service            = each.value
+  disable_on_destroy = false
+  project            = var.google_project
 }

@@ -13,8 +13,8 @@ module "aks" {
   resource_group_name = azurerm_resource_group.cluster.name
   kubernetes_version  = data.azurerm_kubernetes_service_versions.cluster.latest_version
 
-  admin_username         = null
-  azure_policy_enabled   = true
+  admin_username       = null
+  azure_policy_enabled = true
 
   #checkov:skip=CKV_AZURE_4:Logging is disabled for demo purpose. Re-enable for production environments.
   log_analytics_workspace_enabled   = false

@@ -7,7 +7,7 @@ output "cluster_id" {
 # see https://developer.hashicorp.com/terraform/language/values/outputs
 output "cluster_name" {
   description = "AKS Cluster Name."
-  value       = var.tfe_workspaces_prefix
+  value       = module.aks.aks_name
 }
 
 # see https://developer.hashicorp.com/terraform/language/values/outputs
