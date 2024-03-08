@@ -28,6 +28,14 @@ output "console_url" {
   value       = "https://portal.azure.com/#home"
 }
 
+# see https://developer.hashicorp.com/terraform/language/values/outputs
+output "command_add_to_kubeconfig" {
+  description = "Command to add Cluster to .kubeconfig."
+
+  # see https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+  value = "az aks get-credentials --name ${module.aks.aks_name} --resource-group ${azurerm_resource_group.cluster.name} --admin"
+}
+
 # this variable is used for testing purposes and has no bearing on the demo
 # see https://developer.hashicorp.com/terraform/language/values/outputs
 output "workspace_url" {

@@ -11,6 +11,9 @@
   * [Usage](#usage)
     * [Inputs](#inputs)
     * [Outputs](#outputs)
+    * [Downstream Consumption](#downstream-consumption)
+      * [In Terraform](#in-terraform)
+      * [In `kubectl`](#in-kubectl)
 <!-- TOC -->
 
 ## Requirements
@@ -45,6 +48,10 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | workspace_url | this variable is used for testing purposes and has no bearing on the demo see https://developer.hashicorp.com/terraform/language/values/outputs |
 <!-- END_TF_DOCS -->
 
+### Downstream Consumption
+
+#### In Terraform
+
 The Kubernetes Cluster can be consumed via the [digitalocean_kubernetes_cluster](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/kubernetes_cluster) data source:
 
 ```hcl
@@ -55,3 +62,11 @@ data "digitalocean_kubernetes_cluster" "cluster" {
 ```
 
 The above example uses the default values for the `name` property. This may need to be changed for your situation.
+
+#### In `kubectl`
+
+To add the cluster configuration to your `kubectl` configuration, use the following Terraform Output:
+
+```sh
+terraform output -raw command_add_to_kubeconfig
+```

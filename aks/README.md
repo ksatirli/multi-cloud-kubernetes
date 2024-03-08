@@ -12,7 +12,6 @@
     * [Inputs](#inputs)
     * [Outputs](#outputs)
     * [Downstream Consumption](#downstream-consumption)
-  * [Notes](#notes)
 <!-- TOC -->
 
 ## Requirements
@@ -42,24 +41,38 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | cluster_name | AKS Cluster Name. |
 | cluster_region | AKS Cluster Region. |
 | cluster_resource_group | AKS Cluster Resource Group. |
+| command_add_to_kubeconfig | Command to add Cluster to .kubeconfig. |
 | console_url | Azure Portal URL. |
 | workspace_url | this variable is used for testing purposes and has no bearing on the demo see https://developer.hashicorp.com/terraform/language/values/outputs |
 <!-- END_TF_DOCS -->
 
 ### Downstream Consumption
 
+#### In Terraform
+
 The Kubernetes Cluster can be consumed via the [azurerm_kubernetes_cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster) data source:
 
 ```hcl
 # see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster
 data "azurerm_kubernetes_cluster" "cluster" {
-  name                = "multi-cloud-k8s"
+  name                = "multi-cloud-k8s-aks"
   resource_group_name = "multi-cloud-k8s"
 }
-```
 
+provider "kubernetes" {
+  host                   = data.azurerm_kubernetes_cluster.cluster.kube_admin_config.0.host
+  client_certificate     = base64decode(data.azurerm_kubernetes_cluster.cluster.kube_admin_config.0.client_certificate)
+  client_key             = base64decode(data.azurerm_kubernetes_cluster.cluster.kube_admin_config.0.client_key)
+  cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.cluster.kube_admin_config.0.cluster_ca_certificate)
+}
+```
 The above example uses the default values for the `name` and `resource_group_name` property. This may need to be changed for your situation.
 
-## Notes
+#### In `kubectl`
 
-The implementation of this AKS Cluster is based on previous work carried out [here](https://github.com/ksatirli/dynamically-configured-infrastructure/tree/main/terraform/azure).
+To add the cluster configuration to your `kubectl` configuration, use the following Terraform Output:
+
+```sh
+terraform output -raw command_add_to_kubeconfig
+```
+

@@ -16,10 +16,16 @@ module "aks" {
   admin_username       = null
   azure_policy_enabled = true
 
-  #checkov:skip=CKV_AZURE_4:Logging is disabled for demo purpose. Re-enable for production environments.
-  log_analytics_workspace_enabled   = false
-  net_profile_pod_cidr              = "10.1.0.0/16"
-  private_cluster_enabled           = true
+  # for production environments, enable logging
+  log_analytics_workspace_enabled = false
+  net_profile_pod_cidr            = "10.1.0.0/16"
+
+  # for production environments, use a private cluster
+  private_cluster_enabled = false
+
+  # enable a public FQDN for `kubectl` access
+  private_cluster_public_fqdn_enabled = true
+
   rbac_aad                          = true
   rbac_aad_managed                  = true
   role_based_access_control_enabled = true
