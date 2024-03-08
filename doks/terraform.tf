@@ -5,16 +5,16 @@ terraform {
     organization = "a-demo-organization"
 
     workspaces {
-      name = "multi-cloud-k8s-kind"
+      name = "multi-cloud-k8s-doks"
     }
   }
 
   # see https://developer.hashicorp.com/terraform/language/settings#specifying-provider-requirements
   required_providers {
-    # see https://registry.terraform.io/providers/kyma-incubator/kind/0.0.11
-    kind = {
-      source  = "kyma-incubator/kind"
-      version = "0.0.11"
+    # see https://registry.terraform.io/providers/digitalocean/digitalocean/2.14.0
+    digitalocean = {
+      source  = "digitalocean/digitalocean"
+      version = "2.14.0"
     }
   }
 

@@ -1,0 +1,41 @@
+# This is a Terraform-managed file; manual changes will be overwritten.
+# see https://github.com/workloads/github-organization/blob/main/templates/.terraform-docs.yml
+
+---
+
+# see https://terraform-docs.io/user-guide/configuration/formatter/
+formatter: "markdown table"
+
+# see https://terraform-docs.io/user-guide/configuration/output/
+output:
+  file: "README.md"
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+# see https://terraform-docs.io/user-guide/configuration/settings/
+settings:
+  anchor: false
+  color: true
+  default: false
+  escape: false
+  indent: 3
+  required: true
+  sensitive: true
+  type: true
+
+# see https://terraform-docs.io/user-guide/configuration/sort/
+sort:
+  enabled: true
+  by: required
+
+# see https://terraform-docs.io/user-guide/configuration/sections/
+sections:
+  show:
+    - inputs
+    - outputs
+
+# see https://terraform-docs.io/user-guide/configuration/version/
+version: ">= 0.17.0, < 1.0.0"

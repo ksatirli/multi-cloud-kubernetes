@@ -1,43 +1,54 @@
 # Multi-Cloud Kubernetes
 
-> This repository is a multi-cloud setup of Kubernetes Clusters to run HashiCorp Consul, and Vault.
+> This repository shows how to use HashiCorp Terraform to deploy Kubernetes on AWS, DigitalOcean, Microsoft Azure, and Google Cloud.
 
 ## Table of Contents
 
-- [Multi-Cloud Kubernetes](#multi-cloud-kubernetes)
-  - [Table of Contents](#table-of-contents)
-  - [Workflows](#workflows)
-    - [Cluster Workflows](#cluster-workflows)
-    - [Workload Workflows](#workload-workflows)
-    - [Other Workflows](#other-workflows)
-  - [Author Information](#author-information)
-  - [License](#license)
+<!-- TOC -->
+* [Multi-Cloud Kubernetes](#multi-cloud-kubernetes)
+  * [Table of Contents](#table-of-contents)
+  * [Requirements](#requirements)
+  * [Usage](#usage)
+    * [Cluster Workflows](#cluster-workflows)
+  * [Notes](#notes)
+  * [Author Information](#author-information)
+  * [License](#license)
+<!-- TOC -->
 
-## Workflows
+## Requirements
+
+* Terraform `1.7.4` or [newer](https://developer.hashicorp.com/terraform/downloads).
+* Terraform Cloud [Account](https://app.terraform.io/session)
+
+* one or more service provider accounts:
+  * AWS [account](https://aws.amazon.com/account/) for `eks`
+  * DigitalOcean [account](https://m.do.co/c/53544ec84215) for `doks`
+  * Microsoft Azure [account](https://azure.microsoft.com/free) for `aks`
+  * Google Cloud [account](https://console.cloud.google.com/) for `gke`
+
+## Usage
+
+This repository uses a standard Terraform workflow (`init`, `plan`, `apply`).
+
+For more information, including detailed usage guidelines, see the [Terraform documentation](https://developer.hashicorp.com/terraform/cli/commands).
 
 The code in this repository is split out into a handful of distinct workflows, each in their own directory.
 
 ### Cluster Workflows
 
-* `./clusters/aks` contains code for Azure AKS Clusters
-* `./clusters/eks` contains code for AWS EKS Clusters
-* `./clusters/doks` contains code for Digital Ocean Kubernetes Clusters
-* `./clusters/gke` contains code for Google Cloud GKE Clusters
-* `./clusters/kind` contains code for Kubernetes in Docker (kind) Clusters
-
-### Workload Workflows
-
-* `./consul` contains configuration for deploying [HashiCorp Consul](https://www.consul.io)
-  * `./consul/modules/grafana` contains configuration for deploying [Grafana](https://grafana.com)
-  * `./consul/modules/jaeger` contains configuration for deploying [Jaeger](https://www.jaegertracing.io)
-* `./vault` contains configuration for deploying [HashiCorp Vault](https://www.vaultproject.io)
-
-### Other Workflows
-
-* `outputs` contains code for collecting distinctive outputs from all Workspaces in this repository
-* `workspaces` contains code for Terraform Cloud Workspaces
+* `./aks` contains code for Azure AKS clusters
+* `./eks` contains code for AWS EKS clusters
+* `./doks` contains code for DigitalOcean Kubernetes clusters
+* `./gke` contains code for Google Cloud GKE clusters
+* `./kind` contains code for Kubernetes in Docker (kind) Clusters
 
 Each directory contains its own `README.md` with information relevant to the workflow.
+
+## Notes
+
+* By default, all Terraform state is stored in Terraform Cloud. This can be changed by modifying the `cloud` configuration in each `main.tf` file.
+
+* A previous version of this repository featured Consul and Vault deployments. The code for this is accessible via the [`v1` Tag](https://github.com/ksatirli/multi-cloud-kubernetes/releases/tag/v1).
 
 ## Author Information
 
